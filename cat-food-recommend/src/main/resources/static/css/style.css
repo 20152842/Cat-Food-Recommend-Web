@@ -1,0 +1,625 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #ff9a56 0%, #ff6b35 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 860px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+/* ===== 헤더 ===== */
+header {
+    background: linear-gradient(135deg, #ff9a56 0%, #ff6b35 100%);
+    color: white;
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.header-emoji {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+header h1 {
+    font-size: 2.4em;
+    margin-bottom: 8px;
+    font-weight: 800;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    opacity: 0.95;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.description {
+    font-size: 0.9em;
+    opacity: 0.85;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ===== 메인 ===== */
+main {
+    padding: 30px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    color: #ff6b35;
+    border-bottom: 2px solid #ff6b35;
+    padding-bottom: 8px;
+}
+
+/* ===== 입력 폼 ===== */
+.input-section {
+    background: #fff9f6;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #ffe0d0;
+}
+
+.input-group {
+    margin-bottom: 22px;
+}
+
+.input-group:last-child {
+    margin-bottom: 0;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: #555;
+    font-size: 1em;
+}
+
+.input-with-unit {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.input-with-unit input {
+    flex: 1;
+    padding: 12px 14px;
+    border: 2px solid #e0d0c8;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background: white;
+}
+
+.input-with-unit input:focus {
+    outline: none;
+    border-color: #ff6b35;
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.15);
+}
+
+.unit {
+    font-size: 0.95em;
+    color: #888;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.helper-text {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.85em;
+    color: #999;
+}
+
+/* 나이 입력 */
+.age-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.age-container .input-with-unit {
+    flex: 1;
+}
+
+.age-separator {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: #ccc;
+}
+
+/* 라디오 버튼 */
+.radio-group {
+    display: flex;
+    gap: 12px;
+}
+
+.radio-card {
+    flex: 1;
+    cursor: pointer;
+}
+
+.radio-card input[type="radio"] {
+    display: none;
+}
+
+.radio-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 14px 10px;
+    border: 2px solid #e0d0c8;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 0.95em;
+    font-weight: 600;
+    color: #777;
+    background: white;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.radio-card input[type="radio"]:checked + .radio-label {
+    border-color: #ff6b35;
+    background: #fff3ee;
+    color: #ff6b35;
+    box-shadow: 0 2px 8px rgba(255, 107, 53, 0.2);
+}
+
+.radio-label:hover {
+    border-color: #ffaa88;
+    background: #fff9f6;
+}
+
+.radio-emoji {
+    font-size: 1.4em;
+}
+
+/* ===== 예시 버튼 ===== */
+.preset-section {
+    background: #f8f8f8;
+    padding: 20px;
+    border-radius: 16px;
+}
+
+.preset-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.preset-btn {
+    padding: 13px 20px;
+    background: white;
+    border: 2px solid #ff6b35;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.95em;
+    color: #ff6b35;
+    font-weight: 600;
+    transition: all 0.2s;
+    text-align: left;
+}
+
+.preset-btn:hover {
+    background: #ff6b35;
+    color: white;
+}
+
+/* ===== 추천 버튼 ===== */
+.action-section {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.recommend-btn {
+    padding: 16px 50px;
+    background: linear-gradient(135deg, #ff9a56 0%, #ff6b35 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.35);
+}
+
+.recommend-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.45);
+}
+
+.recommend-btn:active {
+    transform: translateY(0);
+}
+
+.recommend-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ===== 에러 메시지 ===== */
+.error-message {
+    background: #fff0f0;
+    color: #c0392b;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: 2px solid #e74c3c;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ===== 결과 섹션 ===== */
+.result-section {
+    animation: fadeInUp 0.4s ease;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 칼로리 정보 박스 */
+.calorie-info-box {
+    background: linear-gradient(135deg, #fff9f6, #fff3ee);
+    border: 2px solid #ffd0b8;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.calorie-info-box h3 {
+    font-size: 1em;
+    color: #888;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.calorie-display {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.calorie-value {
+    font-size: 3em;
+    font-weight: 800;
+    color: #ff6b35;
+}
+
+.calorie-unit {
+    font-size: 1.1em;
+    color: #888;
+    font-weight: 500;
+}
+
+.calorie-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.life-stage-badge {
+    display: inline-block;
+    background: #ff6b35;
+    color: white;
+    padding: 4px 14px;
+    border-radius: 50px;
+    font-size: 0.85em;
+    font-weight: 700;
+}
+
+.calorie-sub {
+    font-size: 0.9em;
+    color: #777;
+}
+
+.formula-toggle {
+    padding: 9px 20px;
+    background: white;
+    border: 2px solid #ff6b35;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    color: #ff6b35;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.formula-toggle:hover {
+    background: #ff6b35;
+    color: white;
+}
+
+.formula-content {
+    margin-top: 14px;
+    padding: 16px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #ffe0d0;
+    text-align: left;
+}
+
+.formula-content pre {
+    white-space: pre-wrap;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85em;
+    color: #666;
+    line-height: 1.8;
+}
+
+/* 결과 없음 */
+.no-result-box {
+    background: #f8f8f8;
+    border: 2px dashed #ddd;
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    color: #888;
+}
+
+.no-result-emoji {
+    font-size: 3em;
+    display: block;
+    margin-bottom: 14px;
+}
+
+.no-result-box p {
+    margin: 6px 0;
+    line-height: 1.7;
+}
+
+/* ===== 추천 카드 ===== */
+.recommendations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.recommendation-card {
+    background: white;
+    border: 2px solid #e8e8e8;
+    border-radius: 16px;
+    padding: 20px;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.recommendation-card:hover {
+    border-color: #ff9a56;
+    box-shadow: 0 4px 16px rgba(255, 107, 53, 0.12);
+}
+
+.recommendation-card.rank-1 {
+    border-color: #ff6b35;
+    background: linear-gradient(135deg, #fff9f6, white);
+    box-shadow: 0 4px 16px rgba(255, 107, 53, 0.15);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.rank-badge {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #e8e8e8;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1em;
+    flex-shrink: 0;
+}
+
+.rank-badge.gold {
+    background: linear-gradient(135deg, #ffb347, #ff6b35);
+    color: white;
+}
+
+.food-name-block {
+    flex: 1;
+}
+
+.food-name {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #333;
+}
+
+.food-brand {
+    font-size: 0.85em;
+    color: #999;
+    margin-top: 2px;
+}
+
+.food-type-badge {
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.8em;
+    font-weight: 700;
+}
+
+.food-type-badge.dry {
+    background: #fff3e0;
+    color: #e65100;
+}
+
+.food-type-badge.wet {
+    background: #e3f2fd;
+    color: #1565c0;
+}
+
+.card-body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.stat-item {
+    background: #f8f8f8;
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 0.78em;
+    color: #999;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.stat-value {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #333;
+}
+
+.stat-value.highlight {
+    color: #ff6b35;
+}
+
+.card-footer {
+    background: #f8f8f8;
+    border-radius: 10px;
+    padding: 10px 14px;
+}
+
+.reason-text {
+    font-size: 0.85em;
+    color: #666;
+}
+
+.reason-label {
+    font-weight: 700;
+    color: #ff6b35;
+    margin-right: 4px;
+}
+
+/* 단백질/지방 바 */
+.nutrition-bars {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.nutrition-bar-item {
+    flex: 1;
+}
+
+.bar-label {
+    font-size: 0.78em;
+    color: #999;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bar-label span:last-child {
+    font-weight: 700;
+    color: #555;
+}
+
+.bar-track {
+    height: 6px;
+    background: #eee;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.6s ease;
+}
+
+.bar-fill.protein {
+    background: linear-gradient(90deg, #ff9a56, #ff6b35);
+}
+
+.bar-fill.fat {
+    background: linear-gradient(90deg, #ffd166, #ff9a56);
+}
+
+/* ===== 푸터 ===== */
+footer {
+    background: #f8f8f8;
+    padding: 20px 30px;
+    text-align: center;
+    color: #aaa;
+    font-size: 0.85em;
+    line-height: 1.6;
+}
+
+/* ===== 반응형 ===== */
+@media (max-width: 600px) {
+    main {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .radio-group {
+        gap: 8px;
+    }
+
+    .card-body {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .calorie-value {
+        font-size: 2.5em;
+    }
+
+    .age-container {
+        gap: 6px;
+    }
+
+    .nutrition-bars {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
