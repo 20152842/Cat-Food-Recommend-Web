@@ -86,6 +86,58 @@
 
 ---
 
+## 로컬 컴퓨터에서 직접 실행하는 방법
+
+본인 PC에서 서비스를 돌려 보고 싶다면 아래 순서대로 진행하면 됩니다.
+
+### 1. 필요한 프로그램 설치
+
+| 프로그램 | 용도 | 받는 곳 |
+|---------|------|--------|
+| **Java 17 (JDK)** | 서버 실행에 필요 | [Adoptium Temurin 17](https://adoptium.net/temurin/releases/?version=17&os=Windows) 등에서 설치 |
+| **Maven** | 빌드에 필요 | [Maven 다운로드](https://maven.apache.org/download.cgi) → 압축 풀고, 설치 가이드대로 경로 설정 |
+
+> Java만 설치한 뒤, **명령 프롬프트**나 **PowerShell**에서 `java -version`, `mvn -v` 를 입력해 각각 버전이 나오면 준비 완료예요.
+
+### 2. 프로젝트 받기
+
+- **Git 사용하는 경우**: `git clone https://github.com/20152842/Cat-Food-Recommend-Web.git` 후 해당 폴더로 이동  
+- **ZIP으로 받는 경우**: GitHub에서 **Code → Download ZIP** 으로 받고 압축을 푼 폴더로 이동
+
+### 3. 터미널에서 실행
+
+프로젝트 **폴더 안**에서 아래 명령을 실행하세요.
+
+**Windows (명령 프롬프트 / PowerShell):**
+```text
+mvn spring-boot:run
+```
+
+**Mac / Linux (Maven 설치 후):**
+```text
+mvn spring-boot:run
+```
+
+처음 실행 시 라이브러리를 받느라 1~2분 걸릴 수 있어요.  
+`Started ... CatFoodRecommendApplication` 같은 문구가 보이면 **실행된 것**이에요.
+
+### 4. 브라우저에서 접속
+
+실행이 되었다면 웹 브라우저 주소창에 아래를 입력하세요.
+
+```text
+http://localhost:8080
+```
+
+이제 로컬에서 냥이 사료 추천기를 사용할 수 있어요.
+
+### 참고
+
+- **네이버 쇼핑 검색**: 실제 상품 검색 결과를 쓰려면 개발자용 설정(`application.properties`의 네이버 API 키)이 필요해요. 없어도 **칼로리 계산**과 **비교 목록** 기능은 그대로 사용할 수 있어요.
+- **종료**: 터미널 창에서 `Ctrl + C` 를 누르면 서버가 종료돼요.
+
+---
+
 ## 어디서 이용할 수 있나요?
 
 웹 브라우저만 있으면 어디서든 이용 가능해요. 스마트폰에서도 잘 돼요! 🐾
