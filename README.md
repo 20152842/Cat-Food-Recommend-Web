@@ -88,53 +88,60 @@
 
 ## 로컬 컴퓨터에서 직접 실행하는 방법
 
-본인 PC에서 서비스를 돌려 보고 싶다면 아래 순서대로 진행하면 됩니다.
+본인 PC에서 서비스를 돌려 보고 싶다면, 아래를 **위에서부터 순서대로** 따라 하시면 됩니다.
 
-### 1. 필요한 프로그램 설치
+---
 
-| 프로그램 | 용도 | 받는 곳 |
-|---------|------|--------|
-| **Java 17 (JDK)** | 서버 실행에 필요 | [Adoptium Temurin 17](https://adoptium.net/temurin/releases/?version=17&os=Windows) 등에서 설치 |
-| **Maven** | 빌드에 필요 | [Maven 다운로드](https://maven.apache.org/download.cgi) → 압축 풀고, 설치 가이드대로 경로 설정 |
+### 준비: 프로그램 두 개 설치
 
-> Java만 설치한 뒤, **명령 프롬프트**나 **PowerShell**에서 `java -version`, `mvn -v` 를 입력해 각각 버전이 나오면 준비 완료예요.
+1. **Java 17**  
+   - [Adoptium Temurin 17 (Windows)](https://adoptium.net/temurin/releases/?version=17&os=Windows) 에서 설치 파일을 받아 실행해서 설치해 주세요.
+2. **Maven**  
+   - [Maven 다운로드](https://maven.apache.org/download.cgi) 페이지에서 **apache-maven-xxx-bin.zip** 을 받아서 압축을 풀고, [설치 가이드](https://maven.apache.org/install.html)대로 **PATH에 추가**해 주세요.
 
-### 2. 프로젝트 받기
+설치가 끝났다면, 아래 **실행 단계**로 가면 됩니다.
 
-- **Git 사용하는 경우**: `git clone https://github.com/20152842/Cat-Food-Recommend-Web.git` 후 해당 폴더로 이동  
-- **ZIP으로 받는 경우**: GitHub에서 **Code → Download ZIP** 으로 받고 압축을 푼 폴더로 이동
+---
 
-### 3. 터미널에서 실행
+### 실행 단계 (Windows 기준)
 
-프로젝트 **폴더 안**에서 아래 명령을 실행하세요.
+1. **프로젝트 폴더 준비**  
+   - GitHub 페이지에서 **Code → Download ZIP** 으로 받은 뒤, ZIP을 풀어서 **Cat-Food-Recommend-Web** 폴더가 보이게 해 두세요.  
+   - 그 **Cat-Food-Recommend-Web** 폴더 안으로 들어가세요 (이 폴더가 “프로젝트 폴더”예요).
 
-**Windows (명령 프롬프트 / PowerShell):**
-```text
-mvn spring-boot:run
-```
+2. **PowerShell을 켜세요.**  
+   - Windows 키를 누른 뒤 `powershell` 이라고 입력하고, **Windows PowerShell** 을 실행하세요.
 
-**Mac / Linux (Maven 설치 후):**
-```text
-mvn spring-boot:run
-```
+3. **프로젝트 폴더로 이동하는 명령어를 입력한 뒤 Enter를 누르세요.**  
+   - ZIP을 푼 위치가 예를 들어 `C:\Users\내이름\Downloads\Cat-Food-Recommend-Web` 이라면, 아래처럼 입력하고 Enter를 누르세요.  
+   - (실제로 ZIP을 푼 경로에 맞게 `C:\Users\내이름\Downloads` 부분만 바꿔 주세요.)
+   ```text
+   cd C:\Users\내이름\Downloads\Cat-Food-Recommend-Web
+   ```
+   - 폴더 안에 `pom.xml` 이 보이는 그 폴더가 맞는 위치예요.
 
-처음 실행 시 라이브러리를 받느라 1~2분 걸릴 수 있어요.  
-`Started ... CatFoodRecommendApplication` 같은 문구가 보이면 **실행된 것**이에요.
+4. **서버를 켜는 명령어를 입력한 뒤 Enter를 누르세요.**
+   ```text
+   mvn spring-boot:run
+   ```
+   - 처음에는 라이브러리를 받느라 1~2분 걸릴 수 있어요.  
+   - 맨 아래쪽에 `Started ... CatFoodRecommendApplication` 이라고 뜨면 **실행된 것**이에요.
 
-### 4. 브라우저에서 접속
+5. **브라우저를 열고 주소창에 아래를 입력한 뒤 Enter를 누르세요.**
+   ```text
+   http://localhost:8080
+   ```
+   - 이제 냥이 사료 추천기 화면이 보이면 성공이에요.
 
-실행이 되었다면 웹 브라우저 주소창에 아래를 입력하세요.
+6. **끌 때는**  
+   - PowerShell 창에서 **Ctrl + C** 를 한 번 누르면 서버가 종료돼요.
 
-```text
-http://localhost:8080
-```
-
-이제 로컬에서 냥이 사료 추천기를 사용할 수 있어요.
+---
 
 ### 참고
 
-- **네이버 쇼핑 검색**: 실제 상품 검색 결과를 쓰려면 개발자용 설정(`application.properties`의 네이버 API 키)이 필요해요. 없어도 **칼로리 계산**과 **비교 목록** 기능은 그대로 사용할 수 있어요.
-- **종료**: 터미널 창에서 `Ctrl + C` 를 누르면 서버가 종료돼요.
+- **네이버 쇼핑 검색**: 실제 상품 검색을 쓰려면 개발자용 설정이 따로 필요해요. 그걸 안 해도 **칼로리 계산**이랑 **비교 목록**은 그대로 쓸 수 있어요.
+- **Mac에서 하시는 경우**: 터미널을 연 뒤, 위와 같이 프로젝트 폴더로 `cd` 로 이동하고, 같은 명령어 `mvn spring-boot:run` 을 입력하시면 됩니다.
 
 ---
 
