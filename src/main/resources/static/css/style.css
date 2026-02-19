@@ -133,6 +133,37 @@ h2 {
     color: #999;
 }
 
+/* 실제 검색 기반 추천 옵션 */
+.real-search-section .checkbox-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 12px 0;
+}
+.real-search-section .checkbox-card input { margin: 0; }
+.real-search-section .checkbox-label { font-weight: 500; color: #555; }
+.search-query-wrap {
+    margin-top: 0;
+}
+.search-query-wrap .search-query-input {
+    flex: 1;
+    padding: 12px 14px;
+    border: 2px solid #e0d0c8;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background: white;
+}
+.search-query-wrap .search-query-input:focus {
+    outline: none;
+    border-color: #ff6b35;
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.15);
+}
+.search-query-wrap .search-query-input::placeholder {
+    color: #aaa;
+}
+
 /* 나이 입력 */
 .age-container {
     display: flex;
@@ -288,15 +319,100 @@ h2 {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* 칼로리 정보 박스 */
-.calorie-info-box {
-    background: linear-gradient(135deg, #fff9f6, #fff3ee);
-    border: 2px solid #ffd0b8;
-    border-radius: 16px;
-    padding: 24px;
-    margin-bottom: 24px;
-    text-align: center;
+/* 칼로리 정보 (간단) */
+.calorie-compact {
+    margin-bottom: 20px;
+    padding: 12px 16px;
+    background: #f8f8f8;
+    border-radius: 10px;
+    border: 1px solid #eee;
 }
+.calorie-inline { font-size: 1em; color: #555; }
+.calorie-detail-btn {
+    margin-left: 12px;
+    padding: 4px 12px;
+    font-size: 0.85em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+    color: #666;
+}
+.calorie-detail-btn:hover { border-color: #ff6b35; color: #ff6b35; }
+.calorie-detail-panel {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #eee;
+    font-size: 0.9em;
+}
+.calorie-detail-line {
+    display: block;
+    margin-bottom: 10px;
+}
+.calorie-detail-line .life-stage-badge { margin-right: 8px; }
+.calorie-detail-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+.calorie-detail-buttons .formula-toggle { margin: 0; }
+.calorie-detail-panel .formula-content { margin-top: 8px; }
+.api-unavailable { color: #c0392b; font-size: 0.9em; margin-top: 8px; }
+
+/* 비교 목록 */
+.compare-section { margin-top: 40px; padding: 24px; background: #f8f9fa; border-radius: 16px; }
+.compare-desc, .compare-source { font-size: 0.9em; color: #666; margin-bottom: 12px; line-height: 1.6; }
+.compare-list { display: flex; flex-direction: column; gap: 16px; }
+.compare-slot {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-start;
+}
+.compare-slot.filled { border-color: #ff9a56; }
+.compare-slot .slot-image { width: 64px; height: 64px; border-radius: 8px; object-fit: cover; background: #f0f0f0; }
+.compare-slot .slot-info { flex: 1; min-width: 200px; }
+.compare-slot .slot-name { font-weight: 700; margin-bottom: 4px; }
+.compare-slot .slot-form {
+    flex: 1;
+    min-width: 260px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px 12px;
+    align-items: center;
+    font-size: 0.9em;
+}
+.compare-slot .slot-form label { white-space: nowrap; }
+.compare-slot .slot-form input,
+.compare-slot .slot-form select { padding: 6px 8px; width: 100%; max-width: 140px; }
+.compare-slot .slot-form .slot-save-wrap { grid-column: span 2; }
+.compare-slot .slot-form .slot-save { padding: 6px 14px; background: #ff6b35; color: white; border: none; border-radius: 6px; cursor: pointer; }
+.compare-slot .slot-computed { display: block; margin-top: 8px; font-size: 0.9em; color: #555; }
+.compare-slot .slot-remove { padding: 6px 12px; background: #e74c3c; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.85em; flex-shrink: 0; }
+.compare-table-wrap { margin-top: 24px; overflow-x: auto; }
+.compare-table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; display: table; }
+.compare-table th, .compare-table td { padding: 10px 12px; text-align: left; border: 1px solid #eee; }
+.compare-table th { background: #ff6b35; color: white; font-size: 0.9em; }
+.compare-table tbody tr:hover { background: #fff9f6; }
+.add-to-compare-btn {
+    padding: 8px 14px;
+    background: #ff6b35;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-top: 8px;
+}
+.add-to-compare-btn:hover { background: #e55a2b; }
+.add-to-compare-btn:disabled { background: #ccc; cursor: not-allowed; }
+.card-no-data { color: #999; font-size: 0.85em; }
 
 .calorie-info-box h3 {
     font-size: 1em;
@@ -382,6 +498,52 @@ h2 {
     line-height: 1.8;
 }
 
+.source-toggle { margin-top: 10px; }
+
+/* 정렬 선택 */
+.sort-section {
+    margin-bottom: 20px;
+    padding: 16px;
+    background: #f8f8f8;
+    border-radius: 12px;
+}
+.sort-label {
+    display: block;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 10px;
+}
+.sort-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.sort-btn {
+    padding: 10px 18px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 600;
+    color: #666;
+    transition: all 0.2s;
+}
+.sort-btn:hover {
+    border-color: #ff6b35;
+    color: #ff6b35;
+}
+.sort-btn.active {
+    border-color: #ff6b35;
+    background: #ff6b35;
+    color: white;
+}
+.sort-note {
+    margin-top: 10px;
+    font-size: 0.85em;
+    color: #888;
+}
+
 /* 결과 없음 */
 .no-result-box {
     background: #f8f8f8;
@@ -437,6 +599,20 @@ h2 {
     margin-bottom: 14px;
 }
 
+.card-header .card-image {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+.card-header .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .rank-badge {
     width: 36px;
     height: 36px;
@@ -464,6 +640,14 @@ h2 {
     font-size: 1.1em;
     font-weight: 700;
     color: #333;
+}
+a.food-name {
+    text-decoration: none;
+    color: inherit;
+}
+a.food-name:hover {
+    color: #ff6b35;
+    text-decoration: underline;
 }
 
 .food-brand {
@@ -535,6 +719,23 @@ h2 {
     font-weight: 700;
     color: #ff6b35;
     margin-right: 4px;
+}
+
+.buy-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: #ff6b35;
+    color: white;
+    border-radius: 8px;
+    font-size: 0.9em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.buy-link:hover {
+    background: #e55a2b;
+    color: white;
 }
 
 /* 단백질/지방 바 */

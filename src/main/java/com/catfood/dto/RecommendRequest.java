@@ -45,4 +45,9 @@ public class RecommendRequest {
     @Min(value = 1000, message = "월 예산은 1,000원 이상이어야 합니다.")
     @Max(value = 1000000, message = "월 예산은 1,000,000원 이하로 입력해주세요.")
     private Integer monthlyBudget;
+
+    /**
+     * 검색어 (선택). 비어 있으면 생애 단계에 따라 "고양이 사료", "고양이 키튼 사료" 등으로 자동 생성.
+     */
+    private String searchQuery;
 }

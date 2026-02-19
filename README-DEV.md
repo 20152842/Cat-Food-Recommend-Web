@@ -115,8 +115,16 @@ MER = RER × 생애 단계 계수
 | `gender` | String | `MALE` 또는 `FEMALE` |
 | `neutered` | Boolean | required |
 | `monthlyBudget` | Integer | 1000 ~ 1000000 (원) |
+| `useRealSearch` | Boolean | 선택. true 시 네이버 쇼핑 검색 결과로 추천 (API 키 필요) |
+| `searchQuery` | String | 선택. 실제 검색 시 검색어. 비면 생애단계별 자동 검색어 사용 |
 
 **Response Body**
+
+- `calculationSourceDescription`: 하루 급여량·하루 비용·월 비용 계산 출처 및 신빙성 안내 문구
+- `recommendationsByRank`: 랭킹순(추천순) 목록
+- `recommendationsByPrice`: 가격순(월 비용 낮은 순) 목록
+- `recommendationsByReview`: 리뷰순 목록 (리뷰 수 미제공 시 추천 점수순으로 대체)
+- `reviewSortNote`: 리뷰순 선택 시 안내 문구 (예: "리뷰 수 정보는 제공되지 않아 추천 점수순으로 표시합니다.")
 
 ```json
 {
@@ -125,23 +133,23 @@ MER = RER × 생애 단계 계수
   "lifeFactor": 1.6,
   "lifeStageDescription": "성체 중성화 수컷 (1~7세)",
   "formulaDescription": "NRC/AAFCO 권장 칼로리 계산 공식\n...",
-  "recommendations": [
-    {
-      "rank": 1,
-      "foodName": "하이큐 슈프림 어덜트",
-      "brand": "Hiq",
-      "type": "DRY",
-      "dailyAmountGrams": 84.7,
-      "dailyCost": 3812,
-      "monthlyCost": 38120,
-      "proteinPercent": 34.0,
-      "fatPercent": 16.0,
-      "reason": "균형 잡힌 단백질 함량, 합리적인 가격 (예산의 76% 사용)",
-      "score": 30.0
-    }
-  ]
+  "calculationSourceDescription": "■ 하루 급여량 (g/일)\n...",
+  "recommendationsByRank": [ { "rank": 1, "foodName": "하이큐 슈프림 어덜트", "brand": "Hiq", "type": "DRY", "dailyAmountGrams": 84.7, "dailyCost": 3812, "monthlyCost": 38120, "proteinPercent": 34.0, "fatPercent": 16.0, "reason": "균형 잡힌 단백질 함량, 합리적인 가격 (예산의 76% 사용)", "score": 30.0 } ],
+  "recommendationsByPrice": [ /* 동일 항목, 월 비용 오름차순 */ ],
+  "recommendationsByReview": [ /* 동일 항목, 리뷰 수 순(미제공 시 추천 점수순) */ ],
+  "reviewSortNote": "리뷰 수 정보는 제공되지 않아 추천 점수순으로 표시합니다.",
+  "recommendations": [ /* recommendationsByRank 와 동일 (하위 호환) */ ]
 }
 ```
+
+---
+
+## 계산 근거 및 출처 (신빙성)
+
+- **하루 급여량**: MER ÷ 100g당 칼로리 × 100. MER는 NRC/AAFCO 공식, 100g당 칼로리는 제품 영양성분표 또는 추정치.
+- **하루 비용**: (하루 급여량/1000) × kg당 가격. kg당 가격 = 상품가 ÷ 용량(kg). 가격 출처: 내부 DB 또는 네이버 쇼핑 최저가.
+- **월 비용**: 하루 비용 × 30.
+- 상세 문구는 `CalculationSourceDocument.FULL_DESCRIPTION` 및 API 응답 `calculationSourceDescription`에 포함.
 
 ---
 

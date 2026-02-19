@@ -3,6 +3,7 @@ package com.catfood.controller;
 import com.catfood.dto.RecommendRequest;
 import com.catfood.dto.RecommendResponse;
 import com.catfood.service.CatFoodRecommendService;
+import com.catfood.service.NaverShoppingSearchService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,9 +27,20 @@ public class CatFoodController {
     private static final Logger logger = LoggerFactory.getLogger(CatFoodController.class);
 
     private final CatFoodRecommendService recommendService;
+    private final NaverShoppingSearchService naverShoppingSearchService;
 
-    public CatFoodController(CatFoodRecommendService recommendService) {
+    public CatFoodController(CatFoodRecommendService recommendService,
+                             NaverShoppingSearchService naverShoppingSearchService) {
         this.recommendService = recommendService;
+        this.naverShoppingSearchService = naverShoppingSearchService;
+    }
+
+    /**
+     * 실제 검색 기반 추천 사용 가능 여부 (네이버 API 설정 시 true)
+     */
+    @GetMapping("/real-search-available")
+    public ResponseEntity<Map<String, Boolean>> realSearchAvailable() {
+        return ResponseEntity.ok(Map.of("available", naverShoppingSearchService.isAvailable()));
     }
 
     /**
